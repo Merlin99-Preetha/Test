@@ -7,7 +7,7 @@ const Home = () => {
     <div>
       <div>Home page</div>
 
-      <Link to={'/Create'}><button>home</button> </Link>
+      <Link to={'/Create'}><button>create</button> </Link>
       <Link to={'/View'}><button>view</button></Link>
       
 
