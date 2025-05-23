@@ -1,30 +1,53 @@
 
-import './Createstyle.css'
 import { Link } from 'react-router-dom'
+import './createstyle.css'
+import { useState } from 'react'
 
 const Create = () => {
+
+  const [userDetails, setUserDetails] = useState({
+    bookName: "",
+    bookPrice: "",
+    ratings: ""
+  })
+
+  const onChangeHandler = (e) => {
+    setUserDetails((prevDetails) => ({
+      ...prevDetails, [e.target.name]: e.target.value
+    }))
+
+  }
+
+
+  const sayHai = (e) => {
+    e.preventDefault()
+    console.log(userDetails);
+
+  }
+
   return (
-    <div>
-      <div classname="mainBox"><h1>create page</h1></div><br />
+    <div className="mainBox">
+      <div>
+        <h1>create page</h1>
+      </div><br />
 
-      <form>
-        
-      <label for="name">BookName: </label>
-      <input type="text" id="BookName" /><br /><br />
+      <form onSubmit={sayHai}>
 
-      <label for="price">BookPrice: </label>
-      <input type="number" id="BookPrice" /><br /><br />
+        <label htmlFor="name">BookName: </label>
+        <input value={userDetails.bookName} type="text" name='bookName' id="bookName" onChange={onChangeHandler} /><br /><br />
+
+        <label htmlFor="price">BookPrice: </label>
+        <input value={userDetails.bookPrice} type="number" name='bookPrice' id="bookPrice" onChange={onChangeHandler} /><br /><br />
 
 
-      <label for="ratings">Ratings: </label>
-      <input type="text" id="Ratings" /><br /><br />
+        <label htmlFor="ratings">Ratings: </label>
+        <input value={userDetails.ratings} type="text" name='ratings' id="ratings" onChange={onChangeHandler} /><br /><br />
+
+        <button type='submit'>Save</button>
       </form>
-      
 
-
-
-      <Link to={'/Home'}><button>home</button></Link>
-      <Link to={'/View'}><button>view</button></Link><br /><br />
+      <div><Link to={'/Home'}><button>home</button></Link>
+        <Link to={'/View'}><button>view</button></Link><br /><br /></div>
 
     </div>
   )
