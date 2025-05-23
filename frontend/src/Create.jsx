@@ -19,7 +19,7 @@ const Create = () => {
   }
 
 
-  const sayHai = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     console.log(userDetails);
 
@@ -31,7 +31,7 @@ const Create = () => {
         <h1>create page</h1>
       </div><br />
 
-      <form onSubmit={sayHai}>
+      <form onSubmit={handleSubmit}>
 
         <label htmlFor="name">BookName: </label>
         <input value={userDetails.bookName} type="text" name='bookName' id="bookName" onChange={onChangeHandler} /><br /><br />
